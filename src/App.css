@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.unauthorized {
+  color: #383838;
+}
+
+.home {
+  height: 103vh;
+  background-size: cover;
+}
