@@ -8,8 +8,9 @@ import jwt from "jsonwebtoken";
 import UserContext from './components/Common/UserContext'
 import useLocalStorage from "./hooks/useLocalStorage";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'reactstrap';
 import './App.css';
+import Container from '@material-ui/core/Container';
+
 
 export const TOKEN_STORAGE_ID = "jobly-token";
 
@@ -35,6 +36,7 @@ function App() {
           JoblyApi.token = token;
           let userResult = await JoblyApi.getCurrentUser(username);
           setCurrentUser(userResult);
+          console.log("userResult", userResult)
           // setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
@@ -92,11 +94,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <UserContext.Provider value={{ currentUser, setCurrentUser, hasAppliedToJob, applyToJob}}>
-        <NavBar logout={logout} />
-        <Container>
+      <NavBar logout={logout} />
+
+      <Container maxWidth="sm">
+
         <Routes login={login} signup={signup} currentUser={currentUser}/>
         </Container>
+
         </UserContext.Provider>
+
       </BrowserRouter>
     </div>
   );

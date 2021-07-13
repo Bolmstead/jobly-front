@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from '../Common/UserContext'
 import {Card, Button} from 'react-bootstrap';
+import '../../App.css';
+
 
 /* returns the card template of a job opening */
-function JobCard({title, salary, equity, id, companyName}) {
+function JobCard({title, salary, equity, id, companyName, hasApplied}) {
   const { hasAppliedToJob, applyToJob } = useContext(UserContext);
   const [applied, setApplied] = useState();
 
@@ -20,13 +22,22 @@ function JobCard({title, salary, equity, id, companyName}) {
     setApplied(true);
   }
 
+  useEffect(() => {
+    async function hasUserApplied() {
+      if (hasApplied) {
+        setApplied(true)
+      }
+    }
+    hasUserApplied();
+  }, []);
+
   return (
-    <Card className="mt-3">
+    <Card className="card">
       <Card.Body>
-      <Card.Title>{title}</Card.Title>
+      <h4>{title}</h4>
       <h6>{companyName}</h6>
-      <span>Salary: {salary}</span><br/>
-      <span>Equity: {equity}</span><br/><br/>
+      <span className="caption">Salary: ${salary} &nbsp; &nbsp;</span>
+      <span className="caption">Equity: {equity}</span><br/><br/>
       <Button 
               className="btn btn-sm btn-primary"
               onClick={handleApply}

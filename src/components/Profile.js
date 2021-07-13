@@ -8,9 +8,7 @@ import JoblyApi from "../Api"
 function Profile(updateProfile) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [formData, setFormData] = useState({
-    firstName: currentUser.firstName,
-    lastName: currentUser.lastName,
-    email: currentUser.email,
+
     username: currentUser.username,
     password: "",
   });
@@ -26,9 +24,6 @@ function Profile(updateProfile) {
     evt.preventDefault();
 
     let profileData = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
       password: formData.password,
     };
 
@@ -63,45 +58,12 @@ function Profile(updateProfile) {
 
   return (
     <div><br/>
-      <h1>Profile for {currentUser.username}</h1>
-      <p>Fill out below to update profile</p>
+      <p>Update your password by entering your a new one below</p>
 
       <div className="ProfileForm">
-        <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
           <div className="card">
             <div className="card-body">
               <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>First name</label>
-                  <input
-                      name="firstName"
-                      className="form-control"
-                      placeholder={currentUser.firstName}
-                      value={formData.firstName}
-                      onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Last name</label>
-                  <input
-                      name="lastName"
-                      className="form-control"
-                      placeholder={currentUser.lastName}
-                      value={formData.lastName}
-                      onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Email</label>
-                  <input
-                      type="email"
-                      name="email"
-                      className="form-control"
-                      placeholder={currentUser.email}
-                      value={formData.email}
-                      onChange={handleChange}
-                  />
-                </div>
                 <div className="form-group">
                   <label>Password</label>
                   <input
@@ -119,7 +81,7 @@ function Profile(updateProfile) {
                 }
 
                 {isUpdated
-                    ? <h4>Your profile has been updated successfully!</h4>
+                    ? <h4>Your password has been updated successfully!</h4>
                     : null
                 }
 
@@ -132,7 +94,6 @@ function Profile(updateProfile) {
                 </button>
               </form>
             </div>
-          </div>
         </div>
       </div>
 

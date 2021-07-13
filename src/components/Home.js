@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../App.css"
 
 /* Home page that displays login and signup button links */
 
@@ -11,12 +12,13 @@ function Home({ currentUser }) {
   }
 
   return (
-    <div>
-      <br />
+    <div className="home">
+      <br /><br /><br /><br />
       {username ? (
         <div>
-          <h1>Welcome, {username}!</h1>
-          <h5>Search for companies and open positions using the bar above.</h5>
+          <h1>Welcome to Jobly, {username}!</h1><br/>
+          <h6 className="caption">Jobly is a website that allows you to search for </h6>
+          <h6 className="caption">fake companies and their job openings! </h6>
         </div>
       ) : (
         <div className="home">

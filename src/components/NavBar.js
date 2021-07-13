@@ -17,7 +17,7 @@ function NavBar({logout}) {
   
   return (
     <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light">
         <Nav>
           <NavLink exact to="/" className="m-2">Home</NavLink>
           <NavLink className="m-2" to="/Companies">Companies</NavLink>
@@ -30,7 +30,7 @@ function NavBar({logout}) {
                   <NavLink to="/Signup" className="m-2">Signup</NavLink>
                 </div>
           ) : ( <div>
-            <NavLink to="/Profile" className="m-2">Profile</NavLink>
+            <NavLink to="/Profile" className="m-2">Update Password</NavLink>
             <NavLink to="/" className="m-2" onClick={logout}>Logout </NavLink>
           </div>
         )}

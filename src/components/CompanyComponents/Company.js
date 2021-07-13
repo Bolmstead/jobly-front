@@ -6,6 +6,8 @@ import JobCardList from "../JobComponents/JobCardList"
 import UserContext from '../Common/UserContext'
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from '@material-ui/core/Container';
+
 
 /* displays the detail of a company by calling the API to grab company information. */
 function Company() {
@@ -29,7 +31,10 @@ function Company() {
         <h1>{company.name}</h1>
         <p>{company.description}</p><br/>
         <h3>Position Openings:</h3>
+        <Container maxWidth="xs">
+
         <JobCardList jobs={company.jobs} />
+        </Container>
     </div>
   );
 }

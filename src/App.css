@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #FAF9F8;
+  height: 97vh
 }
 
 .unauthorized {
@@ -9,4 +11,16 @@
 .home {
   height: 103vh;
   background-size: cover;
+}
+
+.card {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.caption {
+  color: gray
+}
+
+.home {
 }
