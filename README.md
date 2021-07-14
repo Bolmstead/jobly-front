@@ -4,14 +4,14 @@ Jobly is a website that allows users to view fake companies along with their job
 
 # Frontend Technologies
 
--Javascript
--ReactJS
--HTML
--CSS
--Material-UI
--React-Bootstrap
--JSON Web Token
--Axios
+- Javascript
+- ReactJS
+- HTML
+- CSS
+- Material-UI
+- React-Bootstrap
+- JSON Web Token
+- Axios
 
 ## Available Scripts
 
