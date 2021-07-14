@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css"
+import JoblyApi from "../../Api";
+
 
 /* Home page that displays login and signup button links */
 
@@ -10,6 +12,13 @@ function Home({ currentUser }) {
   if (currentUser) {
     username = currentUser.username;
   }
+
+  useEffect(() => {
+    async function wakeUpBackendServer() {
+      await JoblyApi.wakeUpHeroku();
+    }
+    wakeUpBackendServer();
+  }, []);
 
   return (
     <div className="home">

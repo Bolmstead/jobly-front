@@ -34,6 +34,13 @@ class JoblyApi {
 
   // Individual API routes
 
+    /** Test route sent at homepage to wake up heroku server */
+
+
+  static async wakeUpHeroku() {
+    await this.request(`auth/test`);
+  }
+
   /** Get details on a company by handle. */
 
   static async getCompany(handle) {
